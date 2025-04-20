@@ -1,0 +1,33 @@
+# Ignore Jekyll build directories
+_site/
+
+# Ignore drafts (posts in _drafts are not ready to be published)
+_drafts/
+
+# Ignore Gemfile.lock (often regenerated and not necessary in the repository)
+Gemfile.lock
+
+# Ignore log files
+*.log
+
+# Ignore temporary files created by your editor (e.g., Sublime Text, VSCode, etc.)
+*.swp
+*.swo
+.idea/
+.vscode/
+
+# Ignore OS-specific files (macOS, Linux, etc.)
+.DS_Store
+Thumbs.db
+
+# Ignore backup files
+*~
+
+# Ignore node_modules if you are using Node.js packages
+node_modules/
+
+# Ignore RubyGems
+*.gem
+
+# Ignore configuration and settings related to Jekyll
+.jekyll-metadata

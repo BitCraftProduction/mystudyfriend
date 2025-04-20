@@ -6,6 +6,7 @@ description: >-
 
 baseurl: ""  # <-- name of the repo
 url: "https://www.mystudyfriend.in"
+permalink: /:year/:month/:title.html
 
 
 theme: minima
