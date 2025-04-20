@@ -1,0 +1,27 @@
+title: MyStudyFriend
+email: your-email@example.com
+description: >-
+  My Study Friend is your AI-powered smart learning partner.
+
+
+baseurl: ""  # <-- name of the repo
+url: "https://www.mystudyfriend.in"
+
+
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+
+collections:
+  pages:
+    output: true
+    permalink: /:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: page

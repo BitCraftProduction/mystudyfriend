@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% include head.html %}
+<body>
+
+  <header>
+    <div class="navbar">
+      <div class="logo">
+        <a href="{{ "/" | relative_url }}">My Study Friend</a>
+      </div>
+  
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+  
+      <nav>
+        <ul>
+          <li><a href="{{ "/" | relative_url }}">Home</a></li>
+          <li><a href="{{ "/about" | relative_url }}">About</a></li>
+          <li><a href="{{ "/contact" | relative_url }}">Contact</a></li>
+          <li><a href="{{ "/blog" | relative_url }}">Blog</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+      
+
+  <!-- Main Content Section -->
+  <main class="post">
+    <article>
+      <h1>{{ page.title }}</h1>
+      <p class="post-meta">
+        <span>{{ page.date | date: "%B %d, %Y" }}</span>
+        {% if page.author %} <span>by {{ page.author }}</span>{% endif %}
+        {% if page.categories %} <span> {{ page.categories | join: ", " }}</span>{% endif %}
+      </p>
+      
+      <div class="post-content">
+        {{ content }}
+      </div>
+    </article>
+
+  
+
+    <ul id="blog-posts">
+      {% for post in site.posts %}
+        <li class="post-item" {% if forloop.index > 5 %}style="display: none;"{% endif %}>
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          <span> - {{ post.date | date: "%b %d, %Y" }}</span>
+          <p>{{ post.excerpt | strip_html | truncatewords: 20 }}</p>
+        </li>
+      {% endfor %}
+    </ul>
+    
+    <button id="load-more">Load More</button>
+    
+  </main>
+
+  <!-- Footer Section -->
+
+ <footer>
+  {% include footer.html %}
+ </footer>
+  
+
+
+  <script>
+    document.querySelector('.nav-toggle').addEventListener('click', function() {
+      const nav = document.querySelector('nav');
+      nav.classList.toggle('active');
+    });
+
+  // Load more...
+  document.addEventListener('DOMContentLoaded', function () {
+    const posts = document.querySelectorAll('.post-item');
+    const loadMore = document.getElementById('load-more');
+    let currentVisible = 5;
+
+    loadMore.addEventListener('click', function () {
+      let nextVisible = currentVisible + 5;
+      for (let i = currentVisible; i < nextVisible && i < posts.length; i++) {
+        posts[i].style.display = 'list-item';
+      }
+      currentVisible = nextVisible;
+
+      if (currentVisible >= posts.length) {
+        loadMore.style.display = 'none';
+      }
+    });
+  });
+
+
+  </script>
+  
+
+</body>
+</html>
