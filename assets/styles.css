@@ -56,6 +56,15 @@ img {
   display: block;
 }
 
+.thumbnail img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+  object-fit: cover;
+}
+
 /* Header Styles */
 header {
   background-color: var(--card-bg);

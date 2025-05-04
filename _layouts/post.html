@@ -50,11 +50,23 @@
         {% if page.categories %} <span> {{ page.categories | join: ", " }}</span>{% endif %}
       </p>
 
-      <img src="{{ page.image }}" alt="{{ page.title }}">
+      <img class="thumbnail" src="{{ page.image }}" alt="{{ page.title }}">
       
       <div class="post-content">
         {{ content }}
       </div>
+
+      {% if page.faqs %}
+        <div class="faqs">
+          <h3 class="h4">Frequently Asked Questions</h3>
+          {% for faq in page.faqs %}
+          <div class="faq-item">
+            <h4 class="h5">{{ faq.question }}</h4>
+            <p>{{ faq.answer }}</p>
+          </div>
+          {% endfor %}
+        </div>
+      {% endif %}
     </article>
 
 
@@ -95,17 +107,7 @@
  </footer>
   
 
- {% if page.faqs %}
- <div class="faqs">
-   <h3 class="h4">Frequently Asked Questions</h3>
-   {% for faq in page.faqs %}
-   <div class="faq-item">
-     <h4 class="h5">{{ faq.question }}</h4>
-     <p>{{ faq.answer }}</p>
-   </div>
-   {% endfor %}
- </div>
-{% endif %}
+
 
   
 
