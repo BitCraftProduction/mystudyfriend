@@ -49,6 +49,8 @@
         {% if page.author %} <span>by {{ page.author }}</span>{% endif %}
         {% if page.categories %} <span> {{ page.categories | join: ", " }}</span>{% endif %}
       </p>
+
+      <img src="{{ page.image }}" alt="{{ page.title }}">
       
       <div class="post-content">
         {{ content }}
